@@ -16,6 +16,7 @@ const shuffle = (array) => {
 const startApp = () => {
   let tempArray = JSON.parse(localStorage.getItem("studentsArray"));
   if (tempArray && tempArray.length > 0) {
+    console.log("this isn't working right???")
     studentArray = tempArray;
   } else {
     studentArray = shuffle(students);
