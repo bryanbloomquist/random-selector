@@ -16,16 +16,20 @@ const shuffle = (array) => {
 const startApp = () => {
   let tempArray = JSON.parse(localStorage.getItem("studentsArray"));
   if (tempArray && tempArray.length > 0) {
-    console.log("this isn't working right???")
     studentArray = tempArray;
+  } else if (tempArray && tempArray.length === 0) {
+    studentArray = studentArray.concat(students);
+    shuffle(studentArray);
   } else {
-    studentArray = shuffle(students);
+    studentArray = studentArray.concat(students);
+    shuffle(studentArray);
   }
 };
 
 const selectRandomStudent = () => {
   if (studentArray.length === 0) {
-    studentArray = studentArray.concat(shuffle(students));
+    studentArray = studentArray.concat(students);
+    shuffle(studentArray);
   };
   studentEl.innerHTML = studentArray[0];
   studentArray.shift();
