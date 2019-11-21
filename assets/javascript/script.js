@@ -2,12 +2,15 @@ const studentEl = document.querySelector("#display-student");
 let studentArray = [];
 
 //fisher-yates shuffle method
-const shuffle = (a) => {
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+const shuffle = (array) => {
+  let i = 0, j = 0, temp = null
+  for (i = array.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
-  return a;
+  return array;
 }
 
 const startApp = () => {
