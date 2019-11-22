@@ -27,12 +27,17 @@ const startApp = () => {
 };
 
 const selectRandomStudent = () => {
-  if (studentArray.length === 0) {
+  if (studentArray.length === 1) {
     studentArray = studentArray.concat(students);
     shuffle(studentArray);
   };
-  studentEl.innerHTML = studentArray[0];
+  studentEl.setAttribute("class", "animated slideOutLeft");
+  setTimeout( function() {
+    studentEl.innerHTML = studentArray[0];
+    studentEl.setAttribute("class", "animated slideInRight");
+  }, 500);
   studentArray.shift();
+  console.log(studentArray);
   localStorage.setItem("studentsArray", JSON.stringify(studentArray));
 };
 
