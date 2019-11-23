@@ -1,5 +1,6 @@
 const studentEl = document.querySelector("#display-student");
 const jumbotronEl = document.querySelector(".jumbotron");
+const buttonEl = document.querySelector(".next")
 let numberArray = [];
 
 //fisher-yates shuffle method
@@ -26,14 +27,16 @@ const startApp = () => {
     let tempArray = JSON.parse(localStorage.getItem("numbersArray"));
     if (tempArray && tempArray.length > 0) {
         numberArray = tempArray;
-    } else if (tempArray && tempArray.length === 0) {
-        loadNumArray();
+    // } else if (tempArray && tempArray.length === 0) {
+    //     loadNumArray();
     } else {
         loadNumArray();
     }
 };
 
 const selectRandomStudent = () => {
+    buttonEl.disabled = true;
+    setTimeout( function() {buttonEl.disabled = false;}, 1000);
     let i = numberArray[0];
     studentEl.setAttribute("class", "animated slideOutLeft");
     setTimeout(function () {
