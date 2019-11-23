@@ -4,11 +4,16 @@ body {
   background-attachment: fixed;
   background-size: cover;
   font-family: 'Permanent Marker', cursive;
+  overflow: hidden;
 }
 
 .jumbotron {
   background-color: #ff8800;
   height: 200px;
+}
+
+.reset {
+  background-color: #cccccc;
 }
 
 button.btn {
